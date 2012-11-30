@@ -1,0 +1,626 @@
+@import 'reset';
+@import 'zeno';
+@import 'vkbd';
+
+@theme: #219eee;
+@color: #666;
+@color1: #DC143C;
+@color2: #9ACD32;
+
+#loading, #msg {
+    width:80vw;
+    height:30vh;
+    position:fixed;
+    left:50%;
+    top:50%;
+    margin-left:-40vw;
+    margin-top:-15vh;
+    border-radius:3vw;
+    background:rgba(0, 0, 0, .8) url('../img/button.png') no-repeat;
+    box-shadow:0 0 15px #333;
+    background-position:65vw 2vw;
+    background-size:11vw 11vw;
+    z-index:1000;
+    font-size:6vw;
+    line-height:32vh;
+    color:#ddd;
+    font-weight:bold;
+    text-align:center;
+    display:none;
+    cursor:pointer;
+}
+
+#wrap {
+    width:85vw;
+    margin:0 auto;
+    overflow:hidden;
+    padding:7.5vw;
+}
+#menu {
+    margin:0 auto;
+    width:85vw;
+    float:left;
+    .box {
+	display:block;
+	width:40.625vw;
+	height:40.625vw;
+	float:left;
+	padding:0;
+	margin: 0 0.78125vw 1.5625vw 0.78125vw;
+	background-color:@theme;
+	background-repeat:no-repeat;
+	background-position:50% 4.6875vw;
+	background-size:23.5vw 23.5vw;
+	color:#fff;
+	line-height:69.53125vw;
+	font-size:5.9375vw;
+	text-align:center;
+	overflow:hidden;
+	cursor:pointer;
+	&:nth-child(4n+1), &:nth-child(4n){
+	    background-color:@color;
+	}
+    }
+    .gaikuang {
+	background-image: url(../img/general.png);
+    }
+    .update {
+	background-image: url(../img/update.png);
+    }
+    .xiaoli {
+	background-image: url(../img/calendar.png);
+    }
+    .kebiao {
+	background-image: url(../img/curriculum.png);
+    }
+    .chengji {
+	background-image: url(../img/GPA.png);
+    }
+    .kaoshi {
+	background-image: url(../img/exam.png);
+    }
+    .shida {
+    	background-image: url(../img/Top10-cc98.png);
+    }
+    .xiaoche {
+	background-image: url(../img/bus.png);
+    }
+    .jiaoshi{
+	background-image: url(../img/rooms.png);
+    }
+    .xiaohua{
+	background-image: url(../img/joke.png);
+    }
+    .login {
+	background-image: url(../img/login.png);
+    }
+    .logout{
+	background-image: url(../img/exit.png);
+    }
+    .config {
+	background-image: url(../img/setting.png);
+    }
+    .zuoye {
+	background-image: url(../img/homework.png);
+    }
+    .about {
+	background-image: url(../img/about.png);
+    }
+    .clear_after();
+}
+.mask {
+    width:100%;
+    height:100%;
+}
+.logo {
+    display:block;
+    width:37.5vw;
+    height:22vw;
+    background:url(../img/logo-2.png) no-repeat left top;
+    background-size:37.5vw 22vw;
+    float:left;
+    cursor:pointer;
+}
+.hide {
+    display:none;
+}
+#gaikuang {
+    width:84.375vw;
+    .header{
+	#kebiao .header;
+	background:url(../img/general-blue.png) no-repeat left bottom;
+    }
+    #zju_date_info {
+	font-size:5.625vw;
+	color:#555;
+	line-height:2em;
+    }
+    #timer {
+	font-size:5.625vw;
+	color:@theme;
+	line-height:5.625vw;
+	.msg_timer {
+	    width:48%;
+	    float:left;
+	}
+	
+	.msg_course {
+	    width:48%;
+	    float:right;
+	    font-size:3.4375vw;
+	    margin-top:0.46875vw;
+	    text-overflow:ellipsis;
+	}
+	.clear_after;
+    }
+    
+    #course_today, #course_tomorrow{
+	&:before {	    
+	    content:"Tomorrow";
+	    display:block;
+	    font-size:9.375vw;
+	    padding-left:.5em;
+	    color:#555;
+	    font-weight:bold;
+	    border:none;
+	    border-left: 3.125vw solid @theme;
+	    border-radius:10.9375vw;
+	}
+	color:@theme;
+	font-size:4.375vw;
+    }
+    #course_today {
+	&:before{
+	    content:"Today";
+	}
+	padding-bottom:2em;
+    }
+}
+#login {
+    width:90%;
+    margin:0 auto;
+    padding-top:3.125vw;
+    input[type="text"], input[type="password"]{
+	resize:none;
+	border:3px solid @color;
+	font-size:7.5vw;
+	line-height:11.875vw;
+	padding:1.5625vw;
+	height:15.0vw;
+	margin-bottom:3.125vw;
+	width:95%;
+    }
+    input[type="text"] {
+	margin-top:4.6875vw;
+    }
+    #login_submit {
+	background:@theme;
+	border:none;
+	color:#fff;
+	font-size:5vw;
+	line-height:15vw;
+	text-align:center;
+	height:15.0vw;
+	width:30vw;
+	cursor:pointer;
+	border-radius:1.5625vw;
+	margin-right:0.3125vw;
+    }
+    header{
+	font-size:15.0vw;
+	float:right;
+	text-align:right;
+	line-height:25.0vw;
+	color:@theme;
+    }
+}
+#copyright{
+    padding-top:1em;
+    color:@color;
+    //    text-align:center;
+}
+#chengji{
+    width:84.375vw;
+    .header{
+	#kebiao .header;
+	background:url(../img/GPA-blue.png) no-repeat left bottom;
+    }
+    #danke .chengji {
+	margin:3.125vw 0;
+    }
+    #gpa {
+	.detail {
+	    display:block;
+	}
+	.gpa {
+	    margin: 3.125vw 0;
+	    text-transform: uppercase;
+	    .date {
+		font-weight:bold;
+		font-size:1.2em;
+	    }
+	}
+    }
+}
+#config{
+    width:84.375vw;
+    .header {
+	#kebiao .header;
+	background:url(../img/setting-blue.png) no-repeat left bottom;
+    }
+    #config_items {
+	font-size:5.625vw;
+	li {
+	    margin:3.75vw 0;
+	    padding:0 3.75vw;
+	    border-radius:0.78125vw;
+	    background:#fff;
+	    border: 1px solid #777;
+	    color:@color;
+	    height:15.625vw;
+	    line-height:15.625vw;
+	}
+	.true {
+	    &:after {
+		display:block;
+		width:10.9375vw;
+		text-align:center;
+		margin:2.1875vw 1.5625vw 0 0;
+		line-height:7.8125vw;
+		content:'ON';
+		//		background: #9ACD32;
+		background: @color2;
+		border-radius:1.5625vw;
+		padding:1.5625vw;
+		color:#fff;
+		float:right;
+		font-weight:bold;
+	    }
+	}
+	.false {
+	    &:after {
+		display:block;
+		width:10.9375vw;
+		text-align:center;
+		margin:2.1875vw 1.5625vw 0 0;
+		line-height:7.8125vw;
+		content:'OFF';
+		//		background: #DC143C;
+		background: @color1;
+		border-radius:1.5625vw;
+		padding:1.5625vw;
+		color:#fff;
+		float:right;
+		font-weight:bold;
+	    }
+	}
+    }
+}
+#kaoshi{
+    width:84.375vw;
+    .header{
+	#kebiao .header;
+	background:url(../img/exam-blue.png) no-repeat left bottom;
+    }
+    font-size:5.625vw;
+    color:@color;
+    .kaoshi {
+	margin-bottom:2em;
+	.name {
+	    font-size:1.2em;
+	}
+	.time {
+	    color:@theme;
+	    padding-bottom:.5em;
+	}
+    }
+}
+#xiaoli {
+    width:84.375vw;
+    .header{
+	#kebiao .header;
+	background:url(../img/calendar-blue.png) no-repeat left bottom;
+    }
+    #xiaoli_content ul li {
+	background:#fff;
+	border-radius:1.25vw;
+	border: 1px solid #777;
+	font-size:4.6875vw;
+	margin-top:1em;
+	padding:1em;
+	color:@color;
+    }
+}
+#xiaohua{
+    width:84.375vw;
+    .header {
+	#kebiao .header;
+	background:url(../img/joke-blue.png) no-repeat left bottom;
+    }
+    .content {
+	font-size:7.5vw;
+	margin:3.75vw 0;
+    }
+    .love {
+	background:#aaa;
+    }
+    .love.true {
+	background:@color1;
+    }
+    .next {
+	background:@theme;
+	margin-left:1.5625vw;
+    }
+    .next, .love {
+	font-size:5.625vw;
+	padding:3.125vw;
+	border-radius:1.5625vw;
+	color:#fff;
+	float:left;
+	width:35.15625vw;
+	font-weight:bold;
+	text-align:center;
+	cursor:pointer;
+    }
+}
+#xiaoche {
+    width:84.375vw;
+    .header{
+	#kebiao .header;
+	background:url(../img/bus-blue.png) no-repeat left bottom;
+    }
+    select {
+	padding:0;
+	margin:0;
+	font-size:5.0vw;
+	width:40vw;
+	background:#fff;
+	border: 1px solid #777;
+	color:#555;
+    }
+    #bus_info {
+	font-size:5.0vw;
+	color:@color;
+	.bus_info {
+	    font-size:4.375vw;
+	    .detail {
+		font-size:4.375vw;
+		line-height:5.625vw;
+	    }
+	    &:first-child, &:hover{
+		.detail {
+		    display:block;
+		}
+	    }
+	    span {
+		margin-right:1.5625vw;
+	    }
+	    .begin {
+		float:left;
+	    }
+	    .id {
+		color:#777;
+		font-size:4.375vw;
+		height:8.75vw;
+		max-width:8.75vw;
+		overflow:hidden;
+		display:block;
+	    }
+	}
+    }
+}
+#shida {
+    width:84.375vw;
+    .header{
+	#kebiao .header;
+	background:url(../img/Top10-cc98-blue.png) no-repeat left bottom;
+    }
+}
+.clear{
+    clear:both;
+}
+hr {
+    border: 1px solid #ddd;
+    margin-bottom:1em;
+}
+hr.blue {
+    border-color:@theme;
+}
+#kebiao {
+    outline:none;
+    .header{
+	background:url(../img/curriculum-blue.png) no-repeat left bottom;
+	background-size:23.5vw 23.5vw;
+	max-height:23.4375vw;
+	line-height:31.25vw;
+	padding-left:25.0vw;
+	font-size:15.625vw;
+	color:@theme;
+    }
+}
+.kebiao {
+    .class_name {
+	line-height:11.25vw;
+	color:@color;
+	font-size:7.5vw;
+	margin-top:1em;
+    }
+    .class_nth_all {
+	font-size:5.625vw;
+	color:@theme;
+    }
+    .class_time {
+	font-size:5.0vw;
+	color:@color;
+    }
+    .class_classroom {
+	font-size:5.0vw;
+	color:@color;
+    }
+    .no_class {
+	padding-top:9.375vw;
+	font-size:7.5vw;
+	color:@color;
+    }
+}
+.backward{
+    display:block;
+    width:15.625vw;
+    height:15.625vw;
+    margin-top:7.8125vw;
+    background:url(../img/arrow-l.png);
+    background-size:15.625vw 15.625vw;
+    float:right;
+    cursor:pointer;
+}
+.slide{
+    & > div {
+	max-height:18.75vw;
+	overflow:hidden;
+    }
+    header {
+	padding-left:1em;
+	text-transform: capitalize;
+	font-family:ubuntu;
+	height:12.5vw;
+	line-height:12.5vw;
+	font-size:9.375vw;
+	border: 1px solid #555;
+	border-radius:1.25vw;
+	color:#555;
+	margin:4.6875vw 0;
+	cursor:pointer;
+	background:url(../img/arrow-d.png) no-repeat 90% center;
+	background-size:9.375vw 9.375vw;
+    }
+    .detail {
+	font-size:7.5vw;
+	color:@color;
+	overflow:hidden;
+    }
+    .hide {
+	display:block;
+	max-height:18.75vw;
+	.transition(.3s);
+    }
+    .show {
+	header {
+	    background:url(../img/arrow-u.png) no-repeat 90% center;
+	    background-size:9.375vw 9.375vw;
+	}
+	.transition(.3s);
+	max-height:1562.5vw;
+    }
+}
+.em {
+    color:@theme;
+}
+#zuoye {
+    .header{
+	#kebiao .header;
+	background:url(../img/homework-blue.png) no-repeat left bottom;
+    }
+    #add_homework_button {
+	padding: 2.1875vw 0;
+	background:@theme;
+	text-align:center;
+	height:16vw;
+	line-height:16vw;
+	font-size:6vw;
+	color:#fff;
+	border-radius:1.25vw;
+	cursor:pointer;
+	width:100%;
+    }
+    #add_homework {
+	display:none;
+	padding-top:1.5vh;
+	textarea {
+	    -webkit-appearance:none;
+	    margin-top:1vh;
+	    padding:0;
+	    background:#ddd;
+	    margin:0;
+	    border:3vw solid #ddd;
+	    border-radius:2.1875vw;
+	    width:79vw;
+	    height:20vh;
+	    line-height:7.5vw;
+	    font-size:5.625vw;
+	    resize:none;
+	}
+	#share_homework {
+	    text-indent:3vh;
+	    width:85vw;
+	    height:12vw;
+	    line-height:12vw;
+	    font-size:5vw;
+	    background:#cdcdcd;
+	    border-radius:1vh;
+	    margin:2vh 0;
+	    color:#777;
+	    &.true, &.false {
+		&:after {
+		    height:100%;
+		    text-indent:0;
+		    display:block;
+		    text-align:center;
+		    content:'ON';
+//		    text-shadow: 0 0 8px @theme;
+		    background: #eee;
+		    color:@theme;
+		    float:right;
+		    font-weight:bold;
+		    text-align:center;
+		    width:20vw;
+		    border-top-right-radius:1vh;
+		    border-bottom-right-radius:1vh;
+		}
+	    }
+	    &.false {
+		&:after {
+		    content:"OFF";
+		}
+	    }
+	}
+	#add_homework_submit {
+	    margin:0;
+	    padding:0;
+	    margin-top:2vh;
+	    height:10vh;
+	    width:100%;
+	    font-size:5vh;
+	    line-height:10vh;
+	    color:#fff;
+	    text-align:center;
+	    border-radius:1.25vw;
+	    display:inline-block;
+	    background:@theme;
+	    cursor:pointer;
+	}
+	#add_homework_course {
+	    -webkit-appearance: none;
+	    color:@theme;
+	    font-weight:bold;
+	    text-indent:3vh;
+	    width:100%;
+	    font-size:3vh;
+	    line-height:10vh;
+	    border:none;
+	    border-radius:1vh;
+	}
+    }
+}
+#about {
+    .header{
+	#kebiao .header;
+	background:url(../img/homework-blue.png) no-repeat left bottom;
+    }
+    .content {
+	header {
+	    h2 {
+		font-size:5vw;
+	    }
+	}
+    }
+}
