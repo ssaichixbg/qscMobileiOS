@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 //#import "mainViewController.h"
 
 @implementation AppDelegate
@@ -16,8 +16,15 @@
 {
     //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    UIImageView *splashView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, 320, 480)];
-    splashView.image = [UIImage imageNamed:@"Default@2x.png"];
+    UIImageView *splashView;
+    if(iPhone5){
+        splashView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, 320, 568)];
+        splashView.image = [UIImage imageNamed:@"Default-568h@2x.png"];
+    }
+    else{
+        splashView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, 320, 480)];
+        splashView.image = [UIImage imageNamed:@"Default@2x.png"];
+    }
     [self.window addSubview:splashView];
     [self.window bringSubviewToFront:splashView];
     [UIView beginAnimations:nil context:nil];
@@ -28,6 +35,9 @@
     splashView.alpha = 0.0;
     splashView.frame = CGRectMake(-60, -85, 440, 635);
     [UIView commitAnimations];
+
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
     return YES;
 }
 

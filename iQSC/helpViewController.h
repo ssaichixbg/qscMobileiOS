@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface helpViewController : UIViewController
+@interface helpViewController : UIViewController<UIScrollViewDelegate>{
+    
+}
+- (IBAction)btnBack:(id)sender;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollVIew;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end

@@ -35,6 +35,7 @@
         NSURL *url = [NSURL fileURLWithPath:path];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         [self.webView loadRequest:request];
+        [self.webView.scrollView setContentOffset:CGPointMake(200,200)];
     }
     @catch (NSException *exception) {
         NSLog(@"%@",exception);

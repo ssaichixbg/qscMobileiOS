@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "zjuWlanLogin.h"
 #import "DemoHintView.h"
+#import "AppDelegate.h"
 @interface TabBarViewController : UITabBarController
 - (void)showAlert;
 - (void)checkZjuWLan;

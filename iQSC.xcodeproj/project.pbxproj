@@ -18,6 +18,9 @@
 		CE331F1B16685C9B00A59CB4 /* 60-x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE331F1916685C9B00A59CB4 /* 60-x.png */; };
 		CE331F1C16685C9B00A59CB4 /* 90-lifebuoy.png in Resources */ = {isa = PBXBuildFile; fileRef = CE331F1A16685C9B00A59CB4 /* 90-lifebuoy.png */; };
 		CE4D22321665F94B000A84D8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4D22311665F94B000A84D8 /* SystemConfiguration.framework */; };
+		CEC451BE1677562900EA671E /* help_1.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC451BB1677562900EA671E /* help_1.png */; };
+		CEC451BF1677562900EA671E /* help_2.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC451BC1677562900EA671E /* help_2.png */; };
+		CEC451C01677562900EA671E /* help_3.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC451BD1677562900EA671E /* help_3.png */; };
 		CEC5E1521665D5C1005FF1C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC5E1511665D5C1005FF1C1 /* UIKit.framework */; };
 		CEC5E1541665D5C1005FF1C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC5E1531665D5C1005FF1C1 /* Foundation.framework */; };
 		CEC5E1561665D5C1005FF1C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC5E1551665D5C1005FF1C1 /* CoreGraphics.framework */; };
@@ -43,7 +46,6 @@
 		CEC7AD441668EF1200E44D89 /* mobile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC7AD3E1668EF1200E44D89 /* mobile@2x.png */; };
 		CEC7AD451668EF1200E44D89 /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC7AD3F1668EF1200E44D89 /* more.png */; };
 		CEC7AD461668EF1200E44D89 /* more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC7AD401668EF1200E44D89 /* more@2x.png */; };
-		CEC7ADE71668F8C700E44D89 /* qscMobileHtml5 in Resources */ = {isa = PBXBuildFile; fileRef = CEC7ADE61668F8C700E44D89 /* qscMobileHtml5 */; };
 		CEC7E32D166742AC0065539F /* DemoHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC7E320166742AC0065539F /* DemoHintView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CEC7E32E166742AC0065539F /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC7E322166742AC0065539F /* TabBarViewController.m */; };
 		CEC7E32F166742AC0065539F /* SEAnimationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC7E324166742AC0065539F /* SEAnimationFactory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -52,6 +54,10 @@
 		CEC7E332166742AC0065539F /* zjuWlanLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC7E32A166742AC0065539F /* zjuWlanLogin.m */; };
 		CEC7E333166742AC0065539F /* zjuWlanLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC7E32C166742AC0065539F /* zjuWlanLoginViewController.m */; };
 		CEC7E335166743420065539F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC7E334166743420065539F /* QuartzCore.framework */; };
+		CECA6378167712B7008233CA /* qscMobileHtml5 in Resources */ = {isa = PBXBuildFile; fileRef = CECA6377167712B7008233CA /* qscMobileHtml5 */; };
+		CED78EF91678A8D600B92F92 /* UI_Login.png in Resources */ = {isa = PBXBuildFile; fileRef = CED78EF81678A8D600B92F92 /* UI_Login.png */; };
+		CED78EFC1678A8E500B92F92 /* wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = CED78EFA1678A8E500B92F92 /* wifi.png */; };
+		CED78EFD1678A8E500B92F92 /* wifi@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = CED78EFB1678A8E500B92F92 /* wifi@2X.png */; };
 		CEE016A21668735E00AF9FE7 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE016A11668735E00AF9FE7 /* icon@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +87,9 @@
 		CE331F1916685C9B00A59CB4 /* 60-x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "60-x.png"; sourceTree = "<group>"; };
 		CE331F1A16685C9B00A59CB4 /* 90-lifebuoy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "90-lifebuoy.png"; sourceTree = "<group>"; };
 		CE4D22311665F94B000A84D8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CEC451BB1677562900EA671E /* help_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_1.png; sourceTree = "<group>"; };
+		CEC451BC1677562900EA671E /* help_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_2.png; sourceTree = "<group>"; };
+		CEC451BD1677562900EA671E /* help_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_3.png; sourceTree = "<group>"; };
 		CEC5E14D1665D5C1005FF1C1 /* iQSC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iQSC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC5E1511665D5C1005FF1C1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEC5E1531665D5C1005FF1C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -113,7 +122,6 @@
 		CEC7AD3E1668EF1200E44D89 /* mobile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mobile@2x.png"; sourceTree = "<group>"; };
 		CEC7AD3F1668EF1200E44D89 /* more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more.png; sourceTree = "<group>"; };
 		CEC7AD401668EF1200E44D89 /* more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more@2x.png"; sourceTree = "<group>"; };
-		CEC7ADE61668F8C700E44D89 /* qscMobileHtml5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = qscMobileHtml5; sourceTree = "<group>"; };
 		CEC7E31F166742AC0065539F /* DemoHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoHintView.h; sourceTree = "<group>"; };
 		CEC7E320166742AC0065539F /* DemoHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoHintView.m; sourceTree = "<group>"; };
 		CEC7E321166742AC0065539F /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
@@ -129,6 +137,10 @@
 		CEC7E32B166742AC0065539F /* zjuWlanLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zjuWlanLoginViewController.h; sourceTree = "<group>"; };
 		CEC7E32C166742AC0065539F /* zjuWlanLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zjuWlanLoginViewController.m; sourceTree = "<group>"; };
 		CEC7E334166743420065539F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CECA6377167712B7008233CA /* qscMobileHtml5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = qscMobileHtml5; sourceTree = "<group>"; };
+		CED78EF81678A8D600B92F92 /* UI_Login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_Login.png; sourceTree = "<group>"; };
+		CED78EFA1678A8E500B92F92 /* wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi.png; sourceTree = "<group>"; };
+		CED78EFB1678A8E500B92F92 /* wifi@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi@2X.png"; sourceTree = "<group>"; };
 		CEE016A11668735E00AF9FE7 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +175,8 @@
 		CE331EF81667CFB000A59CB4 /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				CED78EFA1678A8E500B92F92 /* wifi.png */,
+				CED78EFB1678A8E500B92F92 /* wifi@2X.png */,
 				CEC7AD3B1668EF1200E44D89 /* zjulogin.png */,
 				CEC7AD3C1668EF1200E44D89 /* zjulogin@2x.png */,
 				CEC7AD3D1668EF1200E44D89 /* mobile.png */,
@@ -243,7 +257,9 @@
 		CEC5E15A1665D5C1005FF1C1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CEC7ADE61668F8C700E44D89 /* qscMobileHtml5 */,
+				CED78EF71678A8B300B92F92 /* Help */,
+				CED78EF51678A8AA00B92F92 /* UI */,
+				CECA6377167712B7008233CA /* qscMobileHtml5 */,
 				CE331EF81667CFB000A59CB4 /* icon */,
 				CE331EE8166778AD00A59CB4 /* help */,
 				CEC5E15B1665D5C1005FF1C1 /* iQSC-Info.plist */,
@@ -300,6 +316,24 @@
 				CEC5E1B21665F5C2005FF1C1 /* Reachability.m */,
 			);
 			name = Reference;
+			sourceTree = "<group>";
+		};
+		CED78EF51678A8AA00B92F92 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CED78EF81678A8D600B92F92 /* UI_Login.png */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		CED78EF71678A8B300B92F92 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				CEC451BB1677562900EA671E /* help_1.png */,
+				CEC451BC1677562900EA671E /* help_2.png */,
+				CEC451BD1677562900EA671E /* help_3.png */,
+			);
+			name = Help;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,7 +426,13 @@
 				CEC7AD441668EF1200E44D89 /* mobile@2x.png in Resources */,
 				CEC7AD451668EF1200E44D89 /* more.png in Resources */,
 				CEC7AD461668EF1200E44D89 /* more@2x.png in Resources */,
-				CEC7ADE71668F8C700E44D89 /* qscMobileHtml5 in Resources */,
+				CECA6378167712B7008233CA /* qscMobileHtml5 in Resources */,
+				CEC451BE1677562900EA671E /* help_1.png in Resources */,
+				CEC451BF1677562900EA671E /* help_2.png in Resources */,
+				CEC451C01677562900EA671E /* help_3.png in Resources */,
+				CED78EF91678A8D600B92F92 /* UI_Login.png in Resources */,
+				CED78EFC1678A8E500B92F92 /* wifi.png in Resources */,
+				CED78EFD1678A8E500B92F92 /* wifi@2X.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,13 +575,13 @@
 		CEC5E1871665D5C1005FF1C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Yang Zhang";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yang Zhang (XQZ5838933)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iQSC/iQSC-Prefix.pch";
 				INFOPLIST_FILE = "iQSC/iQSC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2EB9D0EC-22E6-47F6-A446-98992DBFD571";
+				PROVISIONING_PROFILE = "D3B3AE16-F473-47B8-81A6-F296E81CA812";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -549,13 +589,13 @@
 		CEC5E1881665D5C1005FF1C1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Yang Zhang";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yang Zhang (XQZ5838933)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iQSC/iQSC-Prefix.pch";
 				INFOPLIST_FILE = "iQSC/iQSC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2EB9D0EC-22E6-47F6-A446-98992DBFD571";
+				PROVISIONING_PROFILE = "D3B3AE16-F473-47B8-81A6-F296E81CA812";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

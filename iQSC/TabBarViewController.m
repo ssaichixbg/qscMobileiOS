@@ -54,8 +54,22 @@
     [hintView showInView:self.view orientation:kHintViewOrientationBottom];
 }
 -(void)viewDidAppear:(BOOL)animated{
-    }
-
+}
+-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
+    UIImageView *splashView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, 320, self.view.frame.size.height-45)];
+    [splashView setBackgroundColor:[UIColor whiteColor]];
+    splashView.alpha = 0.8;
+    [self.view addSubview:splashView];
+    [self.view bringSubviewToFront:tabBar];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView: self.view cache:YES];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(startupAnimationDone:finished:context:)];
+    splashView.alpha = 0.0;
+    //splashView.frame = CGRectMake(-60, -85, 440, 635);
+    [UIView commitAnimations];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

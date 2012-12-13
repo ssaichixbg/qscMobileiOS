@@ -15,7 +15,7 @@
 @end
 
 @implementation zjuWlanLoginViewController
-@synthesize txtPassWord,txtUserName,aIisLogin,aIisZJU,imgIsLogin,imgIsZJU;
+@synthesize txtPassWord,txtUserName,aFreshing,btnLogIn,btnLogOut,lblStatus;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -47,51 +47,15 @@
     [activityIndicatorView setCenter: self.view.center] ;
     [activityIndicatorView setActivityIndicatorViewStyle: UIActivityIndicatorViewStyleGray] ;//color
     [self.view addSubview : activityIndicatorView] ;
+    aFreshing.alpha = 0.0f;
     
-    imgIsZJU.alpha = 0.0f;
-    imgIsLogin.alpha = 0.0f;
-    aIisLogin.alpha = 0.0f;
-    aIisZJU.alpha = 0.0f;
-    
+    [self startCheckStatus];
     
     
 }
 -(void)viewDidAppear:(BOOL)animated{
+    //NSLog(@"UI:checkNework request sent to core.");
     
-    
-    
-    
-    NSLog(@"UI:checkNework request sent to core.");
-    NSNumber *isLogin,*isZjuWlan;
-    aIisLogin.alpha = 1.0f;
-    aIisZJU.alpha = 1.0f;
-    
-    [aIisLogin startAnimating];
-    [aIisZJU startAnimating];
-    NSInteger location =[[zjuWlanLogin new] judgeLocaton];
-    if (location == UNZJUWLAN) {
-        isLogin = [NSNumber numberWithBool:0];
-        isZjuWlan = [NSNumber numberWithBool:0];
-    }
-    else {
-        isZjuWlan = [NSNumber numberWithBool:1];
-        if ([[zjuWlanLogin new] isLogin]) {
-            isLogin = [NSNumber numberWithBool:1];
-        }
-        else{
-            isLogin = [NSNumber numberWithBool:0];
-            [self logIn];
-        }
-    }
-    NSDictionary *msg = [NSDictionary dictionaryWithObjectsAndKeys:isLogin,@"isLogin",isZjuWlan,@"isZjuWlan", nil];
-    [aIisLogin stopAnimating];
-    [aIisZJU stopAnimating];
-    aIisLogin.alpha = 0.0f;
-    aIisZJU.alpha = 0.0f;
-    imgIsZJU.alpha = 0.0f;
-    imgIsLogin.alpha = 0.0f;
-    NSLog(@"UI:got result from core.");
-    [self performSelectorOnMainThread:@selector(freshStatus:) withObject:msg waitUntilDone:NO];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -102,23 +66,32 @@
 - (void)viewDidUnload {
     [self setTxtUserName:nil];
     [self setTxtPassWord:nil];
-    
-    [self setAIisZJU:nil];
-    [self setAIisLogin:nil];
-    
-    [self setImgIsLogin:nil];
-    [self setImgIsZJU:nil];
+    [self setAFreshing:nil];
+    [self setLblStatus:nil];
+    [self setBtnLogIn:nil];
+    [self setBtnLogOut:nil];
+    [self setLblStatus:nil];
     [super viewDidUnload];
 }
 - (void)startCheckStatus{
     //lblIsLogin.alpha = 0.0f;
     //lblIsZJuWLAN.alpha = 0.0f;
-    aIisLogin.alpha = 1.0f;
-    aIisZJU.alpha = 1.0f;
+    if (aFreshing.alpha > 0.1f) {//is freshing?
+        return;
+    }
+    aFreshing.alpha = 1.0f;
+    lblStatus.text = TEXT_FRESHING;
     
-    [aIisLogin startAnimating];
-    [aIisZJU startAnimating];    
+    //btnLogIn.enabled = NO;
+    //btnLogOut.enabled = NO;
+    
+    [aFreshing startAnimating];
+    
     [NSThread detachNewThreadSelector:@selector(checkStatus) toTarget:self withObject:nil];
+}
+
+- (IBAction)btnFresh:(id)sender {
+    [self startCheckStatus];
 }
 - (void)checkStatus{
     NSLog(@"UI:checkNework request sent to core.");
@@ -140,37 +113,27 @@
     }
     NSDictionary *msg = [NSDictionary dictionaryWithObjectsAndKeys:isLogin,@"isLogin",isZjuWlan,@"isZjuWlan", nil];
     NSLog(@"UI:got result from core.");
-    [aIisLogin stopAnimating];
-    [aIisZJU stopAnimating];
-    aIisLogin.alpha = 0.0f;
-    aIisZJU.alpha = 0.0f;
-    imgIsZJU.alpha = 0.0f;
-    imgIsLogin.alpha = 0.0f;
+        
     [self performSelectorOnMainThread:@selector(freshStatus:) withObject:msg waitUntilDone:NO];
 }
-- (void)freshStatus:(NSDictionary *)msg{	
-    if([(NSNumber *)[msg objectForKey:@"isLogin"] boolValue]){
-        imgIsLogin.alpha=1.0f;
-        imgIsLogin.image=[[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"true" ofType:@"png" inDirectory:@""]];
-                          
-    }
-    else{
-                              imgIsLogin.alpha=1.0f;
-                              imgIsLogin.image=[[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"false" ofType:@"png" inDirectory:@""]];
-                                                }
-    if([(NSNumber *)[msg objectForKey:@"isZjuWlan"] boolValue]){
-        imgIsZJU.alpha=1.0f;
-        imgIsZJU.image=[[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"true" ofType:@"png" inDirectory:@""]];
-
-        
-    }
-    else{
-        imgIsZJU.alpha=1.0f;
-        imgIsZJU.image=[[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"false" ofType:@"png" inDirectory:@""]];
-    }
+- (void)freshStatus:(NSDictionary *)msg{
+    [aFreshing stopAnimating];
+    aFreshing.alpha = 0.0f;
     
-    //lblIsLogin.alpha = 1.0f;
-    //lblIsZJuWLAN.alpha = 1.0f;
+    
+    if([(NSNumber *)[msg objectForKey:@"isLogin"] boolValue]){
+        lblStatus.text = TEXT_LOGIN;
+        //btnLogOut.enabled = YES;
+        return;
+    }
+    if([(NSNumber *)[msg objectForKey:@"isZjuWlan"] boolValue]){
+        //able to login
+        lblStatus.text = TEXT_UNLOGIN;
+        //btnLogIn.enabled = YES;
+    }
+    else{        
+        lblStatus.text = TEXT_UNZJUWLAN;
+    }
     
 }
 - (void)logIn{
@@ -260,7 +223,7 @@
         [hintLoggingView dismiss];
         return;
     }
-    if ([[zjuWlanLogin new] judgeLocaton] == UNZJUWLAN) {
+    if ([lblStatus.text isEqualToString:TEXT_UNZJUWLAN]){
         [self startCheckStatus];        
         hintView = [DemoHintView  infoHintView];
         // Overwrites the pages titles
@@ -274,7 +237,7 @@
         [hintLoggingView dismiss];
         return;
     }
-    if ([[zjuWlanLogin new] isLogin]) {
+    if ([lblStatus.text isEqualToString:TEXT_LOGIN]) {
         [self startCheckStatus];
         hintView = [DemoHintView  infoHintView];
         // Overwrites the pages titles
@@ -295,8 +258,17 @@
 
 - (IBAction)btnLogOut:(id)sender {
     NSLog(@"UI:btnLogOut pressed.");
+    [activityIndicatorView startAnimating];
+    __block DemoHintView* hintLoggingView ;
+    //[activityIndicatorView startAnimating];
     __block DemoHintView* hintView;
-    if ([[zjuWlanLogin new] judgeLocaton] == UNZJUWLAN) {
+    hintLoggingView = [DemoHintView  infoHintView];
+    // Overwrites the pages titles
+    hintLoggingView.title = @"求是潮－提示";
+    hintLoggingView.hintID = kHintID_Home;
+    [hintLoggingView addPageWithTitle:@"ZJUWLAN" text:@"请稍候..."];
+    [hintLoggingView showInView:self.view orientation:kHintViewOrientationBottom];
+    if ([lblStatus.text isEqualToString:TEXT_UNZJUWLAN]) {
         [self startCheckStatus];
         hintView = [DemoHintView  infoHintView];
         // Overwrites the pages titles
@@ -307,9 +279,12 @@
             [hintView dismiss];
         }];
         [hintView showInView:self.view orientation:kHintViewOrientationTop];
+        [activityIndicatorView stopAnimating];
+        [hintLoggingView dismiss];
         return;
+        //[hintView showInView:self.view orientation:kHintViewOrientationTop];
     }
-    else if (![[zjuWlanLogin new] isLogin]){
+    else if ([lblStatus.text isEqualToString:TEXT_UNLOGIN]){
         hintView = [DemoHintView  infoHintView];
         // Overwrites the pages titles
         hintView.title = @"求是潮－提示";
@@ -319,13 +294,18 @@
             [hintView dismiss];
         }];
         [hintView showInView:self.view orientation:kHintViewOrientationTop];
+        [activityIndicatorView stopAnimating];
+        [hintLoggingView dismiss];
         return;
+        //[hintView showInView:self.view orientation:kHintViewOrientationTop];
     }
     else{
-        [activityIndicatorView startAnimating];
+
         [[zjuWlanLogin new] logOut];
     
-    
+        [hintLoggingView dismiss];
+        [activityIndicatorView stopAnimating];
+
         hintView = [DemoHintView  infoHintView];
         // Overwrites the pages titles
         hintView.title = @"求是潮－提示";
@@ -334,9 +314,10 @@
             [DemoHintView enableHints:NO];
             [hintView dismiss];
         }];
-        [hintView showInView:self.view orientation:kHintViewOrientationTop];
-        [activityIndicatorView stopAnimating];
+        
         [self startCheckStatus];
+        [hintView showInView:self.view orientation:kHintViewOrientationTop];
+        return;
     }
 }
 

@@ -1,12 +1,25 @@
 var keBiaoData;
 
+if (localStorage.getItem('keBiao')) {
+    keBiaoData = JSON.parse(localStorage.getItem('keBiao'));
+    loadKeBiao();
+} else {
+    myGetJsonp('kebiao', true, function(data) {
+        if(data) {
+            keBiaoData = data;
+            loadKeBiao();
+            localStorage.setItem('keBiao', JSON.stringify(keBiaoData));
+        }
+    });
+}
+
 // 设定日子
 var today = new Date();
 var weekArr = ['sun','mon','tue','wed','thu','fri','sat'];
 var todayWeekDate = weekArr[today.getDay()];
 
 var tomorrow = new Date();
-tomorrow.setDate(tomorrow.getDate() + 1);
+tomorrow.setTime(tomorrow.getTime() + 1000*3600*24);
 
 function formatNumberLength(num, length) {
     var r = "" + num;
@@ -26,7 +39,7 @@ function writeCountDownToDom(dom){
     var keBiao = new KeBiao(keBiaoData, now);
 
     if(!keBiao.haveClass())
-        return;
+      return;
 
     var classNthNow = now.getClassNth();
 
@@ -118,6 +131,10 @@ function writeClassToDom(dom, date){
 
 function loadKeBiao() {
     var zjuWeekInfo;
+    var today = new Date();
+    var tomorrow = new Date();
+    tomorrow.setTime(tomorrow.getTime() + 1000*3600*24);
+
     if(today.getZjuWeek() == 'odd') {
         zjuWeekInfo = '当前周是单周。';
     } else if (today.getZjuWeek() == 'even') {
@@ -142,17 +159,4 @@ function loadKeBiao() {
     }
 
     $('#mon .detail').show();
-}
-
-if (localStorage.getItem('keBiao')) {
-    keBiaoData = JSON.parse(localStorage.getItem('keBiao'));
-    loadKeBiao();
-} else {
-    myGetJsonp('kebiao', true, function(data) {
-        if(data) {
-            keBiaoData = data;
-            loadKeBiao();
-            localStorage.setItem('keBiao', JSON.stringify(keBiaoData));
-        }
-    });
 }

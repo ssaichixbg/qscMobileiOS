@@ -17,10 +17,11 @@
 #define WLAN1_1_1_1_LOGOUTPAGE @"https://1.1.1.1/logout.html"
 #define WLAN1_1_1_1_LOGINPAGE @"https://1.1.1.1/login.html"
 #define WLAN1_1_1_1_TEST @"https://1.1.1.1/fs/customwebauth/login05.html"
+#define WLAN50_100_TEST @"http://10.50.200.245"
 //the name of file containing user's xuhao and password
 #define ZJU_USER_INFO_FILE @"zjuUserInfo.plist"
 
-#define TIME_OUT 2.0f
+#define TIME_OUT 1.5f
 //msg NO.
 #define SUCCESS 0
 #define USERNAME_OR_PASSWORD_INCORRECT 1

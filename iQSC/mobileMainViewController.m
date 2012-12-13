@@ -37,31 +37,41 @@
     [activityIndicatorView setCenter: self.view.center] ;
     [activityIndicatorView setActivityIndicatorViewStyle: UIActivityIndicatorViewStyleGray] ;//color
     [self.view addSubview : activityIndicatorView] ;
-    
+    myWebView.alpha = 0.0f;
     //[NSThread detachNewThreadSelector:@selector(getData) toTarget:self withObject:nil];
     //load QSC
     //[self loadWebPage:INDEX];
     //[self unarchive];
     [self loadWebPageWithFile:@"index"];
+    
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    //[self.myWebView reload];
+}
 
 //webview start loading
 - (void)webViewDidStartLoad:(UIWebView *)myWebView{
     [activityIndicatorView startAnimating];
+    self.myWebView.alpha = 0.0f;
+    NSLog(@"fdssf");
     //[myAlert show];
 }
 //webview stop loading
 - (void)webViewDidFinishLoad:(UIWebView *)myWebView
 {
     [activityIndicatorView stopAnimating];
+    [NSThread detachNewThreadSelector:@selector(waitForInterval:) toTarget:self withObject:nil];
     //[myAlert dismissWithClickedButtonIndex:0 animated:YES];
+}
+- (void)waitForInterval:(NSNumber *)interval{
+    sleep(1.0f);
+    self.myWebView.alpha = 1.0f;
 }
 //error during loading
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    UIAlertView *alterview = [[UIAlertView alloc] initWithTitle:@""
-                                                        message:[error localizedDescription]
+    UIAlertView *alterview = [[UIAlertView alloc] initWithTitle:@"求是潮Mobile"
+                                                        message:@"好的嘛。。出错了。"//[error localizedDescription]
                                                        delegate:nil
                                               cancelButtonTitle:nil
                                               otherButtonTitles:@"OK"

@@ -20,5 +20,5 @@
 
 - (void)loadWebPage:(NSString *)urlString;
 - (void)loadWebPageWithFile:(NSString *) pathString;
-
+- (void)waitForInterval:(NSNumber *)interval;
 @end

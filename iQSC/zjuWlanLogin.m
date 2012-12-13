@@ -27,10 +27,10 @@
     }
     NSHTTPURLResponse *response;
     NSError *er;
-    [NSURLConnection sendSynchronousRequest:[self setRequst:@"http://www.zju.edu.cn"] returningResponse:&response error:&er];
+    [NSURLConnection sendSynchronousRequest:[self setRequst:@"http://site.baidu.com"] returningResponse:&response error:&er];
     if([response allHeaderFields]){
         NSInteger length = [[[response allHeaderFields] valueForKey:@"Content-Length"] integerValue];
-        if(length > 1000){
+        if(length > 400){
             NSLog(@"zjuWlanLogin Class:logged in");
             return YES;
         }
@@ -67,12 +67,13 @@
         return WLAN1_1_1_1;
     }
     
-    [NSURLConnection sendSynchronousRequest:[self setRequst:WLAN50_100_LOGINPAGE] returningResponse:&response error:&er];
+    [NSURLConnection sendSynchronousRequest:[self setRequst:WLAN50_100_TEST] returningResponse:&response error:&er];
     if([response allHeaderFields]){
         //length = [[[response allHeaderFields] valueForKey:@"Content-Length"] integerValue];
         NSLog(@"zjuWlanLogin Class:location:50.100");
         return WLAN50_100;
     }
+    
     NSLog(@"zjuWlanLogin Class:out of ZJUWLAN");
     return UNZJUWLAN;
 }
@@ -126,8 +127,9 @@
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
     
     //wait for http requesting done
-    [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:3.5f]];
-    [conn cancel];
+    do {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.5f]];
+    } while (!done_);
     if([self isLogin]){
         NSLog(@"zjuWlanLogin Class:login successfully");
         return SUCCESS;
@@ -172,7 +174,7 @@
     NSMutableURLRequest *urlRequest;
     NSString *postStr;
     NSData *postData;
-    NSLog(@"zjuWlanLogin Class:sending logging out request");
+    NSLog(@"zjuWlanLogin Class:sending 1.1.1.1 logging out request");
     
     //send 1.1.1.1 logout request
     urlRequest = [self setRequst:WLAN1_1_1_1_LOGOUTPAGE];
@@ -184,9 +186,12 @@
     
     NSURLConnection *conn;
     conn = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-    [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:TIME_OUT]];
-    [conn cancel];
+    done_=NO;
+    do {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+    } while (!done_);
     
+    NSLog(@"zjuWlanLogin Class:sending 50.100 logging out request");
     //send 50.100 logout request
     urlRequest = [self setRequst:WLAN50_100_LOGOUTPAGE];
     [urlRequest setValue:[NSString stringWithFormat:@"%d",4096] forHTTPHeaderField:@"Content-Length"];

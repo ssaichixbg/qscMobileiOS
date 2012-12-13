@@ -10,10 +10,10 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="r6W-P0-3BT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="更多" image="more.png" id="9N1-Xn-rBe"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DKo-Hf-EHe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="DKo-Hf-EHe">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -34,34 +34,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="更多" footerTitle="求是潮开发团队 By YangZ. " id="OnW-fl-CoS">
+                            <tableViewSection headerTitle="更多" footerTitle="求是潮工作团队 By YangZ. " id="OnW-fl-CoS">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="tbW-d1-tUg">
-                                        <rect key="frame" x="0.0" y="46" width="320" height="45"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="pBh-Y7-rcW">
+                                        <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="帮助" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XIw-ZK-xcN">
-                                                    <rect key="frame" x="20" y="11" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <connections>
-                                            <segue destination="eAK-Uh-940" kind="push" id="qVp-aF-xtQ"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="pBh-Y7-rcW">
-                                        <rect key="frame" x="0.0" y="91" width="320" height="45"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="关于" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Yh-QZ-qa9">
@@ -87,8 +66,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="求是潮-Mobile" id="dPv-Tl-FuH">
-                        <barButtonItem key="backBarButtonItem" title="返回" id="X8j-D5-YUb"/>
+                        <barButtonItem key="backBarButtonItem" title="返回" id="X8j-D5-YUb">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="422-gn-34T" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -100,12 +82,14 @@
             <objects>
                 <viewController id="Cpf-96-GkE" customClass="aboutViewController" sceneMemberID="viewController">
                     <webView key="view" contentMode="scaleToFill" scalesPageToFit="YES" id="rcm-2h-Kxe">
-                        <rect key="frame" x="0.0" y="64" width="320" height="254"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <dataDetectorType key="dataDetectorTypes" link="YES"/>
                     </webView>
                     <navigationItem key="navigationItem" title="关于" id="IhL-x3-En1"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="webView" destination="rcm-2h-Kxe" id="nhA-vr-3LB"/>
                     </connections>
@@ -117,14 +101,52 @@
         <!--Help View Controller - 帮助-->
         <scene sceneID="Wcy-Hd-toT">
             <objects>
-                <viewController id="eAK-Uh-940" customClass="helpViewController" sceneMemberID="viewController">
-                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" id="W3j-mH-a5N">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </scrollView>
-                    <navigationItem key="navigationItem" title="帮助" id="wAy-YZ-6E4"/>
+                <viewController wantsFullScreenLayout="YES" id="eAK-Uh-940" customClass="helpViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VTg-y4-XGl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" id="W3j-mH-a5N">
+                                <rect key="frame" x="0.0" y="-20" width="320" height="500"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="D0P-F6-WDw">
+                                        <rect key="frame" x="237" y="32" width="73" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="返回">
+                                                    <attributes>
+                                                        <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <font key="NSFont" size="15" name="STHeitiSC-Medium"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnBack:" destination="eAK-Uh-940" eventType="touchUpInside" id="icu-2q-gEN"/>
+                                        </connections>
+                                    </button>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="qOw-18-zyy">
+                                        <rect key="frame" x="134" y="444" width="53" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                        <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="currentPageIndicatorTintColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
+                                    </pageControl>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="帮助" id="lYc-bd-44s"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="pageControl" destination="qOw-18-zyy" id="Ssr-qw-6BA"/>
                         <outlet property="scrollVIew" destination="W3j-mH-a5N" id="ODL-ZI-gak"/>
                     </connections>
                 </viewController>
@@ -159,108 +181,122 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ey0-0P-bK4">
-                                <rect key="frame" x="69" y="227" width="73" height="44"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="一键登录">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnLogIn:" destination="UzM-nE-iTh" eventType="touchUpInside" id="My4-eJ-Iw3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HwN-rM-wuD">
-                                <rect key="frame" x="195" y="227" width="73" height="44"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="UI_Login.png" id="TRC-aT-0y5">
+                                <rect key="frame" x="-5" y="0.0" width="326" height="555"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="guN-Q9-Gc3">
+                                <rect key="frame" x="225" y="223" width="38" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="注销">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnLogOut:" destination="UzM-nE-iTh" eventType="touchUpInside" id="XmY-zR-v6h"/>
+                                    <action selector="btnLogOut:" destination="UzM-nE-iTh" eventType="touchUpInside" id="qry-CK-NfJ"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入学号" minimumFontSize="17" clearButtonMode="whileEditing" id="dG4-9R-5KA">
-                                <rect key="frame" x="107" y="68" width="145" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="学号" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" id="dG4-9R-5KA">
+                                <rect key="frame" x="65" y="131" width="186" height="30"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                                 <connections>
                                     <action selector="finishInputId:" destination="UzM-nE-iTh" eventType="editingDidEndOnExit" id="UqY-2N-kbQ"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" minimumFontSize="17" clearButtonMode="whileEditing" id="9Xp-A2-jzf">
-                                <rect key="frame" x="107" y="121" width="145" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" id="9Xp-A2-jzf">
+                                <rect key="frame" x="65" y="170" width="186" height="30"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="finishInputPassWord:" destination="UzM-nE-iTh" eventType="editingDidEndOnExit" id="9oq-vt-QPs"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="学号：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VA2-vb-wbb">
-                                <rect key="frame" x="43" y="72" width="67" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ofj-xq-2Lv">
+                                <rect key="frame" x="117" y="369" width="73" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="按此刷新">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnFresh:" destination="UzM-nE-iTh" eventType="touchUpInside" id="teJ-20-ok1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Stz-Or-Tnf">
+                                <rect key="frame" x="111" y="224" width="85" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="一键登录">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnLogIn:" destination="UzM-nE-iTh" eventType="touchUpInside" id="kci-sx-Awf"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="left" text="刷新中" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BDe-9P-Kdf">
+                                <rect key="frame" x="20" y="285" width="266" height="93"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="13"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="密码:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sru-O1-cOB">
-                                <rect key="frame" x="43" y="121" width="80" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="连接到ZJUWLAN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="q2r-s1-SZ3">
-                                <rect key="frame" x="23" y="328" width="139" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="登录" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4x7-87-Em6">
-                                <rect key="frame" x="23" y="366" width="46" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" id="wLR-Dd-I42">
-                                <rect key="frame" x="175" y="329" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            </activityIndicatorView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" id="KaY-To-z7s">
-                                <rect key="frame" x="73" y="367" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="148" y="322" width="20" height="20"/>
+                                <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="true.png" id="ZrY-Nk-U7A">
-                                <rect key="frame" x="170" y="323" width="31" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="true.png" id="QMc-T8-B2l">
-                                <rect key="frame" x="68" y="361" width="31" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="目前开通区域：东1,东2,东6,图书馆，西区部分区域" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uZi-uF-fVb">
+                                <rect key="frame" x="19" y="249" width="277" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.66591597576530615" green="0.66591597576530615" blue="0.66591597576530615" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="TVb-Rd-WvE">
+                                <rect key="frame" x="290" y="381" width="18" height="19"/>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="eAK-Uh-940" kind="modal" modalTransitionStyle="coverVertical" id="kiw-uQ-n7O"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <connections>
                             <action selector="touchBackground:" destination="UzM-nE-iTh" eventType="touchDown" id="1OE-9K-Bi1"/>
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="ZJUWLAN一键登录" image="zjulogin.png" id="5gO-8v-NrH"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="aIisLogin" destination="KaY-To-z7s" id="N49-uI-ADy"/>
-                        <outlet property="aIisZJU" destination="wLR-Dd-I42" id="j6B-At-2Ru"/>
-                        <outlet property="imgIsLogin" destination="QMc-T8-B2l" id="H9U-Dg-Wt6"/>
-                        <outlet property="imgIsZJU" destination="ZrY-Nk-U7A" id="dNE-uk-ouM"/>
+                        <outlet property="aFreshing" destination="KaY-To-z7s" id="CQA-8p-nSO"/>
+                        <outlet property="lblStatus" destination="BDe-9P-Kdf" id="t0z-lD-4cG"/>
                         <outlet property="txtPassWord" destination="9Xp-A2-jzf" id="BDm-Wv-zxe"/>
                         <outlet property="txtUserName" destination="dG4-9R-5KA" id="iSg-s1-WOp"/>
                     </connections>
@@ -292,9 +328,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="UI_Login.png" width="640" height="1200"/>
         <image name="mobile.png" width="30" height="30"/>
         <image name="more.png" width="30" height="30"/>
-        <image name="true.png" width="60" height="60"/>
         <image name="zjulogin.png" width="30" height="30"/>
     </resources>
     <classes>
@@ -310,6 +346,8 @@
         <class className="helpViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/helpViewController.h"/>
             <relationships>
+                <relationship kind="action" name="btnBack:"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
                 <relationship kind="outlet" name="scrollVIew" candidateClass="UIScrollView"/>
             </relationships>
         </class>
@@ -322,15 +360,16 @@
         <class className="zjuWlanLoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/zjuWlanLoginViewController.h"/>
             <relationships>
+                <relationship kind="action" name="btnFresh:"/>
                 <relationship kind="action" name="btnLogIn:"/>
                 <relationship kind="action" name="btnLogOut:"/>
                 <relationship kind="action" name="finishInputId:"/>
                 <relationship kind="action" name="finishInputPassWord:"/>
                 <relationship kind="action" name="touchBackground:"/>
-                <relationship kind="outlet" name="aIisLogin" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="aIisZJU" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="imgIsLogin" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="imgIsZJU" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="aFreshing" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="btnLogIn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnLogOut" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="lblStatus" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="txtPassWord" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="txtUserName" candidateClass="UITextField"/>
             </relationships>

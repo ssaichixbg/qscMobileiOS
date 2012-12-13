@@ -1,3 +1,173 @@
+function myGetJsonp(name, showMsg, callback, getArray) {
+    if(!navigator.onLine) {
+        myShowMsg('好的嘛，这是已经离线的节奏……');
+        return;
+    }
+
+    if(showMsg)
+      $('#loading').show();
+
+    if(!pwd)
+      pwd = '';
+
+    var myJsonpUrl = siteUrl+'/jsonp/'+name+'?stuid='+stuid+'&pwd='+pwd+'&token='+token+'&callback=?';
+
+    $.jsonP({url:myJsonpUrl,
+             success:function(data){
+                 if(typeof(data['code']) != "undefined") {
+                     if(data['code'] == 0) {
+                         // 远端返回错误
+                         myShowMsg(data['msg']);
+                         return;
+                     }
+                     if(data['code'] == 1) {
+                         // 远端返回消息
+                         myShowMsg(data['msg']);
+
+                         // 再次访问远端来获取内容（递归）
+                         myGetJsonp(name, callback);
+                     } else {
+                         // 未知情况
+                         return;
+                     }
+                 }
+
+                 if(showMsg)
+                   $('#loading').hide(100);
+
+                 // 回调函数
+                 if(typeof(callback)=='function'){
+                     callback(data);
+                 };
+             },
+             error:function(){
+                 if(!showMsg) return;
+
+                 $('#loading').hide(100);
+                 myShowMsg('好的嘛，断网了吧？');
+             }
+            });
+}
+function myShowMsg(msg, callback) {
+    $('#loading').hide();// 既然显示消息就不必显示loading了
+
+    $('#msg').show();
+    $('#msg .content').html(msg);
+
+    // 回调函数
+    if(typeof(callback)=='function'){
+        callback(msg);
+    };
+}
+function getAllJsonp(showDone){
+    var request_count = 3;
+
+    if(showDone) {
+        var request_done_check = setInterval(function(){
+            if(request_count !== 0)
+	      return;
+
+            myShowMsg('好的嘛，请求完毕');
+            clearInterval(request_done_check);
+        }, 10);
+    }
+
+    myGetJsonp('jwbdata', false, function(data) {
+        if(!data) return;
+        localStorage.setItem('jwbData', JSON.stringify(data));
+        request_count--;
+    });
+    myGetJsonp('xiaoche', false, function(data) {
+        if(!data) return;
+        localStorage.setItem('xiaoChe', JSON.stringify(data));
+        request_count--;
+    });
+    myGetJsonp('calendar', false, function(data) {
+        if(!data) return;
+        localStorage.setItem('xiaoLi', JSON.stringify(data));
+        request_count--;
+    });
+
+    // 下面的需要登录
+    if(isLogin) {
+        request_count += 4;
+
+        myGetJsonp('kebiao', false, function(data) {
+            if(!data) return;
+            localStorage.setItem('keBiao', JSON.stringify(data));
+            request_count--;
+        });
+        myGetJsonp('notice', false, function(data) {
+            if(!data) return;
+            localStorage.setItem('notice', JSON.stringify(data));
+            request_count--;
+        });
+        myGetJsonp('chengji', false, function(data) {
+            if(!data) return;
+            localStorage.setItem('chengJi', JSON.stringify(data));
+            request_count--;
+        });
+        myGetJsonp('kaoshi', false, function(data) {
+            if(!data) return;
+            localStorage.setItem('kaoShi', JSON.stringify(data));
+            request_count--;
+        });
+    }
+}
+function pleaseLoginIfNotLogin(callback) {
+    if(isLogin) {
+        if(typeof(callback) == 'function') {
+            callback();
+        }
+    } else {
+        $('#menu').hide();
+        $('#login').show();
+        $.include(['BigInt.js','Barrett.js','RSA.js']);
+
+        $('#login_form').bind("submit", function(){
+            stuid = $("#stuid").val();
+
+
+//            var rsa_n = "AA18ABA43B50DEEF38598FAF87D2AB634E4571C130A9BCA7B878267414FAAB8B471BD8965F5C9FC3818485EAF529C26246F3055064A8DE19C8C338BE5496CBAEB059DC0B358143B44A35449EB264113121A455BD7FDE3FAC919E94B56FB9BB4F651CDB23EAD439D6CD523EB08191E75B35FD13A7419B3090F24787BD4F4E1967";
+
+            // new rsa key
+            var rsa_n = "B31C73F556614A46E1405B116264A60039ACF9A33F45C121C9ED3A9CDF743566D82FFE73623941C629BFAA9EDFD8B4B5944954FABAB2795D0B09787990562C17400EEB12E5AFCC7D4707B589708F09EE878742113D3CBDD41A8BA5455FB558DBD2A5BEADF739389A953687FD4E1113E68DC48C97346EF7930ECCF7743E2FFB9D";
+            setMaxDigits(131); //131 => n的十六进制位数/2+3
+            var key      = new RSAKeyPair("10001", '', rsa_n); //10001 => e的十六进制
+            pwd = $("#pwd").val();
+            pwd = encryptedString(key, pwd); //不支持汉字
+
+            myGetJsonp('validate', true, function(data) {
+                if(data['stuid'] != '') {
+                    token = data['token'];
+
+                    localStorage.setItem('stuid', stuid);
+                    localStorage.setItem('pwd', pwd);
+                    localStorage.setItem('token', token);
+                    localStorage.setItem('isLogin', true);
+                    isLogin = true;
+                    $('#login').hide(200);
+
+                    $('#menu .user').attr('class', 'box user logout');
+                    $('#menu .user').html('注销');
+
+                    // 回调函数
+                    if(typeof(callback) == 'function') {
+                        callback();
+                    }
+
+                } else {
+                    localStorage.setItem('isLogin', false);
+                    isLogin = false;
+                    myShowMsg('登录失败');
+                }
+            });
+
+            return false;
+        });
+    }
+}
+
 //储存全局script的src元素，不包括JSONP
 var globalScripts = {};
 
@@ -18,9 +188,8 @@ $.extend({
 });
 
 
-//var siteUrl = 'http://localhost/qsc-mobile-back/index.php';
-var siteUrl = 'http://m.myqsc.com/dev3/mobile2/index.php';
-//var siteUrl = 'http://localhost/getproxy/index.php';
+var siteUrl = 'http://m.myqsc.com/php-dev/index.php';
+//var siteUrl = 'http://m.myqsc.com/php-stable/index.php';
 
 // 在phonegap下出错
 // window.addEventListener('offline', function() {
@@ -34,15 +203,20 @@ var pwd = localStorage.getItem('pwd',false) ? localStorage.getItem('pwd') : fals
 var isLogin = localStorage.getItem('isLogin',false) ? localStorage.getItem('isLogin') : false;
 var token = localStorage.getItem('token',false) ? localStorage.getItem('token') : false;
 
+var config;
+var config_list;
 // 初始化用户配置
 // 默认关闭自动给老师好评
-var config = localStorage.getItem('config') ? JSON.parse(localStorage.getItem('config')) : {};
-var config_list = ['update_automatically', 'evaluate_teacher_automatically', 'gaikuang_as_default'];
-for(var i = 0; i < config_list.length; i++) {
-    var item = config_list[i];
-    if(typeof(config[item]) == "undefined")
-      config[item] = false; // 默认关闭特性
+function loadConfig() {
+    config = localStorage.getItem('config') ? JSON.parse(localStorage.getItem('config')) : {};
+    config_list = ['update_automatically', 'evaluate_teacher_automatically', 'gaikuang_as_default'];
+    for(var i = 0; i < config_list.length; i++) {
+        var item = config_list[i];
+        if(typeof(config[item]) == "undefined")
+          config[item] = false; // 默认关闭特性
+    }
 }
+loadConfig();
 
 // 读取教务部数据：单双周、学期之类
 var jwbData;
@@ -70,7 +244,7 @@ $(document).ready(function() {
         $('#menu .user').html('注销');
 
         if(config['gaikuang_as_default']) {
-            $('#menu').hide(200);
+            $('#menu').hide();
             pleaseLoginIfNotLogin(function() {
                 $('#gaikuang').show(200);
                 $.include(['qsc-mobile-kebiao.js']);
@@ -185,26 +359,40 @@ $(document).ready(function() {
     });
 
 
-    $('#menu .login').bind("click", function(){
-        pleaseLoginIfNotLogin(function() {
-            $('#menu').show();
-        });
+    $('.user').bind("click", function(){
+        if(isLogin) {
+            for (var i=0; i<localStorage.length; i++) {
+                var key = localStorage.key(i);
+
+                if(key.indexOf('Keep') != -1)
+                  continue;
+
+                localStorage.removeItem(key);
+                localStorage.setItem('stuid', false);
+            }
+        } else {
+            pleaseLoginIfNotLogin(function() {
+                $('#menu').show();
+            });
+        }
+
+        isLogin = !isLogin;
+
+        stuid = false;
+        pwd = '';
+        $('#pwd').val('');
+
+        if(isLogin) {
+            $('#menu .user').attr('class', 'box user logout');
+            $('#menu .user').html('注销');
+        } else {
+            $('#menu .user').attr('class', 'box user login');
+            $('#menu .user').html('登录');
+        }
+
+        loadConfig();
     });
 
-    $('#menu .logout').bind("click", function(){
-        var stuid = '';
-        var pwd = '';
-        var isLogin = false;
-        // 清空localStorage
-        localStorage.clear();
-        myShowMsg('注销成功', function(msg) {
-            // 刷新以重载js以及到dom
-            setTimeout(function() {
-  		window.location.reload();
-            }, 1000);
-        });
-        return false;
-    });
 
     $('#msg, #loading').bind("click", function(){
         $(this).hide(800);
