@@ -35,9 +35,17 @@
     splashView.alpha = 0.0;
     splashView.frame = CGRectMake(-60, -85, 440, 635);
     [UIView commitAnimations];
-
+    
+    NSString *htmlsBackupPath = [[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:@"htmls"];
+    NSString *htmlsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0]stringByAppendingPathComponent:@"htmls"];
+    NSFileManager *manager = [NSFileManager defaultManager];
+    if (![manager fileExistsAtPath:htmlsPath]) {
+        [[NSFileManager defaultManager]copyItemAtPath:htmlsBackupPath toPath:htmlsPath error:nil];
+    }
+    
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+    
     return YES;
 }
 
