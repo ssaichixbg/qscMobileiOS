@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		CE331EE01667758200A59CB4 /* aboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE331EDF1667758200A59CB4 /* aboutViewController.m */; };
 		CE331EE3166775B300A59CB4 /* helpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE331EE2166775B300A59CB4 /* helpViewController.m */; };
-		CE331EE9166778AD00A59CB4 /* help in Resources */ = {isa = PBXBuildFile; fileRef = CE331EE8166778AD00A59CB4 /* help */; };
 		CE331EEF1667CB5B00A59CB4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE331EEE1667CB5B00A59CB4 /* Default@2x.png */; };
 		CE331EF31667CBFC00A59CB4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CE331EF21667CBFC00A59CB4 /* Default.png */; };
 		CE331EF51667CC0100A59CB4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE331EF41667CC0100A59CB4 /* Default-568h@2x.png */; };
@@ -54,11 +53,12 @@
 		CEC7E332166742AC0065539F /* zjuWlanLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC7E32A166742AC0065539F /* zjuWlanLogin.m */; };
 		CEC7E333166742AC0065539F /* zjuWlanLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC7E32C166742AC0065539F /* zjuWlanLoginViewController.m */; };
 		CEC7E335166743420065539F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC7E334166743420065539F /* QuartzCore.framework */; };
-		CECA6378167712B7008233CA /* qscMobileHtml5 in Resources */ = {isa = PBXBuildFile; fileRef = CECA6377167712B7008233CA /* qscMobileHtml5 */; };
 		CED78EF91678A8D600B92F92 /* UI_Login.png in Resources */ = {isa = PBXBuildFile; fileRef = CED78EF81678A8D600B92F92 /* UI_Login.png */; };
 		CED78EFC1678A8E500B92F92 /* wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = CED78EFA1678A8E500B92F92 /* wifi.png */; };
 		CED78EFD1678A8E500B92F92 /* wifi@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = CED78EFB1678A8E500B92F92 /* wifi@2X.png */; };
 		CEE016A21668735E00AF9FE7 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE016A11668735E00AF9FE7 /* icon@2x.png */; };
+		FEAAA99E17365AE3002B813D /* NSData+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FEAAA99D17365AE3002B813D /* NSData+SSToolkitAdditions.m */; };
+		FEAAAA2917367C0F002B813D /* htmls in Resources */ = {isa = PBXBuildFile; fileRef = FEAAAA2817367C0F002B813D /* htmls */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +76,6 @@
 		CE331EDF1667758200A59CB4 /* aboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aboutViewController.m; sourceTree = "<group>"; };
 		CE331EE1166775B300A59CB4 /* helpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpViewController.h; sourceTree = "<group>"; };
 		CE331EE2166775B300A59CB4 /* helpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = helpViewController.m; sourceTree = "<group>"; };
-		CE331EE8166778AD00A59CB4 /* help */ = {isa = PBXFileReference; lastKnownFileType = folder; path = help; sourceTree = "<group>"; };
 		CE331EEE1667CB5B00A59CB4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		CE331EF21667CBFC00A59CB4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		CE331EF41667CC0100A59CB4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -137,11 +136,13 @@
 		CEC7E32B166742AC0065539F /* zjuWlanLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zjuWlanLoginViewController.h; sourceTree = "<group>"; };
 		CEC7E32C166742AC0065539F /* zjuWlanLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zjuWlanLoginViewController.m; sourceTree = "<group>"; };
 		CEC7E334166743420065539F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		CECA6377167712B7008233CA /* qscMobileHtml5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = qscMobileHtml5; sourceTree = "<group>"; };
 		CED78EF81678A8D600B92F92 /* UI_Login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_Login.png; sourceTree = "<group>"; };
 		CED78EFA1678A8E500B92F92 /* wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi.png; sourceTree = "<group>"; };
 		CED78EFB1678A8E500B92F92 /* wifi@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi@2X.png"; sourceTree = "<group>"; };
 		CEE016A11668735E00AF9FE7 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
+		FEAAA99C17365AE3002B813D /* NSData+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		FEAAA99D17365AE3002B813D /* NSData+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		FEAAAA2817367C0F002B813D /* htmls */ = {isa = PBXFileReference; lastKnownFileType = folder; path = htmls; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +239,8 @@
 				CEC5E1631665D5C1005FF1C1 /* AppDelegate.m */,
 				CEC5E1901665D65F005FF1C1 /* mobileMainViewController.h */,
 				CEC5E1A51665D7C3005FF1C1 /* mobileMainViewController.m */,
+				FEAAA99C17365AE3002B813D /* NSData+SSToolkitAdditions.h */,
+				FEAAA99D17365AE3002B813D /* NSData+SSToolkitAdditions.m */,
 				CEC5E1991665D65F005FF1C1 /* settingViewController.h */,
 				CEC5E1A61665D7C3005FF1C1 /* settingViewController.m */,
 				CEC5E1C31665F6B6005FF1C1 /* Storyboard.storyboard */,
@@ -257,11 +260,10 @@
 		CEC5E15A1665D5C1005FF1C1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FEAAAA2817367C0F002B813D /* htmls */,
 				CED78EF71678A8B300B92F92 /* Help */,
 				CED78EF51678A8AA00B92F92 /* UI */,
-				CECA6377167712B7008233CA /* qscMobileHtml5 */,
 				CE331EF81667CFB000A59CB4 /* icon */,
-				CE331EE8166778AD00A59CB4 /* help */,
 				CEC5E15B1665D5C1005FF1C1 /* iQSC-Info.plist */,
 				CEC5E15C1665D5C1005FF1C1 /* InfoPlist.strings */,
 				CEC5E15F1665D5C1005FF1C1 /* main.m */,
@@ -410,7 +412,6 @@
 			files = (
 				CEC5E15E1665D5C1005FF1C1 /* InfoPlist.strings in Resources */,
 				CEC5E1C61665F6B6005FF1C1 /* Storyboard.storyboard in Resources */,
-				CE331EE9166778AD00A59CB4 /* help in Resources */,
 				CE331EEF1667CB5B00A59CB4 /* Default@2x.png in Resources */,
 				CE331EF31667CBFC00A59CB4 /* Default.png in Resources */,
 				CE331EF51667CC0100A59CB4 /* Default-568h@2x.png in Resources */,
@@ -426,13 +427,13 @@
 				CEC7AD441668EF1200E44D89 /* mobile@2x.png in Resources */,
 				CEC7AD451668EF1200E44D89 /* more.png in Resources */,
 				CEC7AD461668EF1200E44D89 /* more@2x.png in Resources */,
-				CECA6378167712B7008233CA /* qscMobileHtml5 in Resources */,
 				CEC451BE1677562900EA671E /* help_1.png in Resources */,
 				CEC451BF1677562900EA671E /* help_2.png in Resources */,
 				CEC451C01677562900EA671E /* help_3.png in Resources */,
 				CED78EF91678A8D600B92F92 /* UI_Login.png in Resources */,
 				CED78EFC1678A8E500B92F92 /* wifi.png in Resources */,
 				CED78EFD1678A8E500B92F92 /* wifi@2X.png in Resources */,
+				FEAAAA2917367C0F002B813D /* htmls in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +483,7 @@
 				CEC7E333166742AC0065539F /* zjuWlanLoginViewController.m in Sources */,
 				CE331EE01667758200A59CB4 /* aboutViewController.m in Sources */,
 				CE331EE3166775B300A59CB4 /* helpViewController.m in Sources */,
+				FEAAA99E17365AE3002B813D /* NSData+SSToolkitAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
